@@ -3,8 +3,16 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.labo.kaji.fragmentanimations.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/style_cube"
+        android:title="Cube"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_flip"
+        android:title="Flip"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_pushpull"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Push/Pull"
         app:showAsAction="never"/>
 </menu>

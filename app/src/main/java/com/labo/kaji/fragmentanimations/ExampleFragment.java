@@ -28,7 +28,7 @@ import butterknife.OnClick;
 public class ExampleFragment extends Fragment {
 
     @IntDef({NONE, CUBE, FLIP, PUSHPULL})
-    public @interface AnimationMode {}
+    public @interface AnimationStyle {}
     public static final int NONE     = 0;
     public static final int CUBE     = 1;
     public static final int FLIP     = 2;
@@ -44,11 +44,11 @@ public class ExampleFragment extends Fragment {
 
     private static final long DURATION = 500;
 
-    @AnimationMode
-    private static int sAnimationMode = CUBE;
+    @AnimationStyle
+    private static int sAnimationStyle = CUBE;
 
-    @Bind(R.id.textAnimationMode)
-    TextView mTextAnimationMode;
+    @Bind(R.id.textAnimationStyle)
+    TextView mTextAnimationStyle;
 
     public static ExampleFragment newInstance(@AnimationDirection int direction) {
         ExampleFragment f = new ExampleFragment();
@@ -66,13 +66,13 @@ public class ExampleFragment extends Fragment {
                               (int) Math.floor(Math.random() * 128) + 64);
         view.setBackgroundColor(color);
         ButterKnife.bind(this, view);
-        setAnimationModeText();
+        setAnimationStyleText();
         return view;
     }
 
     @Override
     public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
-        switch (sAnimationMode) {
+        switch (sAnimationStyle) {
             case CUBE:
                 switch (getArguments().getInt("direction")) {
                     case UP:
@@ -145,37 +145,40 @@ public class ExampleFragment extends Fragment {
         ft.commit();
     }
 
-    @OnClick(R.id.textAnimationMode)
-    public void switchAnimationMode(View view) {
-        switch (sAnimationMode) {
-            case CUBE:
-                sAnimationMode = FLIP;
-                break;
-            case FLIP:
-                sAnimationMode = PUSHPULL;
-                break;
-            case PUSHPULL:
-            default:
-                sAnimationMode = CUBE;
-                break;
+    @OnClick(R.id.textAnimationStyle)
+    public void switchAnimationStyle(View view) {
+        @AnimationStyle int[] styles;
+        styles = new int[]{CUBE, FLIP, PUSHPULL};
+        for (int i = 0; i<styles.length-1; ++i) {
+            if (styles[i] == sAnimationStyle) {
+                setAnimationStyle(styles[i+1]);
+                return;
+            }
         }
-        setAnimationModeText();
-        Snackbar.make(view, "Animation Style is Changed", Snackbar.LENGTH_SHORT).show();
+        setAnimationStyle(CUBE);
     }
 
-    private void setAnimationModeText() {
-        switch (sAnimationMode) {
+    public void setAnimationStyle(@AnimationStyle int style) {
+        if (sAnimationStyle != style) {
+            sAnimationStyle = style;
+            setAnimationStyleText();
+            Snackbar.make(getView(), "Animation Style is Changed", Snackbar.LENGTH_SHORT).show();
+        }
+    }
+
+    private void setAnimationStyleText() {
+        switch (sAnimationStyle) {
             case NONE:
-                mTextAnimationMode.setText("None");
+                mTextAnimationStyle.setText("None");
                 break;
             case CUBE:
-                mTextAnimationMode.setText("Cube");
+                mTextAnimationStyle.setText("Cube");
                 break;
             case FLIP:
-                mTextAnimationMode.setText("Flip");
+                mTextAnimationStyle.setText("Flip");
                 break;
             case PUSHPULL:
-                mTextAnimationMode.setText("Push/Pull");
+                mTextAnimationStyle.setText("Push/Pull");
                 break;
         }
     }

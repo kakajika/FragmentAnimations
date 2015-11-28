@@ -1,6 +1,7 @@
 package com.labo.kaji.fragmentanimations;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -33,8 +34,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        ExampleFragment f = (ExampleFragment)getSupportFragmentManager().findFragmentById(R.id.layout_main);
+        switch (id) {
+            case R.id.style_cube:
+                f.setAnimationStyle(ExampleFragment.CUBE);
+                return true;
+            case R.id.style_flip:
+                f.setAnimationStyle(ExampleFragment.FLIP);
+                return true;
+            case R.id.style_pushpull:
+                f.setAnimationStyle(ExampleFragment.PUSHPULL);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
