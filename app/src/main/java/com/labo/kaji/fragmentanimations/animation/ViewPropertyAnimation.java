@@ -1,4 +1,4 @@
-package com.labo.kaji.fragmentanimations;
+package com.labo.kaji.fragmentanimations.animation;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;

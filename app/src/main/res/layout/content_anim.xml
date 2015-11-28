@@ -3,12 +3,25 @@
              android:layout_width="match_parent"
              android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textAnimationMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:textAppearance="@android:style/TextAppearance.Large"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
     <ImageView
         android:id="@+id/buttonLeft"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left|center"
         android:src="@drawable/ic_left"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"
         />
 
     <ImageView
@@ -17,6 +30,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right|center"
         android:src="@drawable/ic_right"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"
         />
 
     <ImageView
@@ -25,6 +40,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top|center"
         android:src="@drawable/ic_up"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"
         />
 
     <ImageView
@@ -33,6 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:src="@drawable/ic_down"
+        android:padding="8dp"
+        android:background="?android:attr/selectableItemBackground"
         />
 
 </FrameLayout>
