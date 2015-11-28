@@ -3,6 +3,7 @@ package com.labo.kaji.fragmentanimations.animation;
 import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.view.animation.Animation;
+import android.view.animation.Transformation;
 
 /**
  * @author kakajika
@@ -13,6 +14,7 @@ public class ViewPropertyAnimation extends Animation {
     protected final Camera mCamera = new Camera();
     protected int mWidth  = 0;
     protected int mHeight = 0;
+    protected float mAlpha = 1.0f;
     protected float mPivotX = 0.0f;
     protected float mPivotY = 0.0f;
     protected float mScaleX = 1.0f;
@@ -30,7 +32,8 @@ public class ViewPropertyAnimation extends Animation {
         mHeight = height;
     }
 
-    protected void transformMatrix(Matrix m) {
+    protected void applyTransformation(Transformation t) {
+        final Matrix m = t.getMatrix();
         final float w = mWidth;
         final float h = mHeight;
         final float pX = mPivotX;
@@ -61,6 +64,8 @@ public class ViewPropertyAnimation extends Animation {
         }
 
         m.postTranslate(mTranslationX, mTranslationY);
+
+        t.setAlpha(mAlpha);
     }
 
 }

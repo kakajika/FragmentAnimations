@@ -67,7 +67,7 @@ public class CubeAnimation extends ViewPropertyAnimation {
             mRotationX = value * 90.0f;
             mTranslationY = -value * mHeight;
 
-            transformMatrix(t.getMatrix());
+            applyTransformation(t);
         }
 
     }
@@ -92,7 +92,7 @@ public class CubeAnimation extends ViewPropertyAnimation {
             mRotationY = -value * 90.0f;
             mTranslationX = -value * mWidth;
 
-            transformMatrix(t.getMatrix());
+            applyTransformation(t);
         }
 
     }

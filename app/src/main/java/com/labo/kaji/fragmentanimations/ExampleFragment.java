@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.labo.kaji.fragmentanimations.animation.CubeAnimation;
 import com.labo.kaji.fragmentanimations.animation.FlipAnimation;
+import com.labo.kaji.fragmentanimations.animation.PushPullAnimation;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -26,11 +27,12 @@ import butterknife.OnClick;
  */
 public class ExampleFragment extends Fragment {
 
-    @IntDef({NONE, CUBE, FLIP})
+    @IntDef({NONE, CUBE, FLIP, PUSHPULL})
     public @interface AnimationMode {}
-    public static final int NONE = 0;
-    public static final int CUBE = 1;
-    public static final int FLIP = 2;
+    public static final int NONE     = 0;
+    public static final int CUBE     = 1;
+    public static final int FLIP     = 2;
+    public static final int PUSHPULL = 3;
 
     @IntDef({NODIR, UP, DOWN, LEFT, RIGHT})
     public @interface AnimationDirection {}
@@ -40,7 +42,7 @@ public class ExampleFragment extends Fragment {
     public static final int LEFT  = 3;
     public static final int RIGHT = 4;
 
-    private static final long DURATION = 1000;
+    private static final long DURATION = 500;
 
     @AnimationMode
     private static int sAnimationMode = CUBE;
@@ -95,6 +97,18 @@ public class ExampleFragment extends Fragment {
                         return FlipAnimation.create(FlipAnimation.RIGHT, enter, DURATION);
                 }
                 break;
+            case PUSHPULL:
+                switch (getArguments().getInt("direction")) {
+                    case UP:
+                        return PushPullAnimation.create(PushPullAnimation.UP, enter, DURATION);
+                    case DOWN:
+                        return PushPullAnimation.create(PushPullAnimation.DOWN, enter, DURATION);
+                    case LEFT:
+                        return PushPullAnimation.create(PushPullAnimation.LEFT, enter, DURATION);
+                    case RIGHT:
+                        return PushPullAnimation.create(PushPullAnimation.RIGHT, enter, DURATION);
+                }
+                break;
         }
         return null;
     }
@@ -138,6 +152,9 @@ public class ExampleFragment extends Fragment {
                 sAnimationMode = FLIP;
                 break;
             case FLIP:
+                sAnimationMode = PUSHPULL;
+                break;
+            case PUSHPULL:
             default:
                 sAnimationMode = CUBE;
                 break;
@@ -156,6 +173,9 @@ public class ExampleFragment extends Fragment {
                 break;
             case FLIP:
                 mTextAnimationMode.setText("Flip");
+                break;
+            case PUSHPULL:
+                mTextAnimationMode.setText("Push/Pull");
                 break;
         }
     }

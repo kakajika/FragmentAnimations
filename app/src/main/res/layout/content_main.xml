@@ -17,7 +17,7 @@
         android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="48dp"
+        android:layout_margin="32dp"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>
