@@ -15,8 +15,9 @@
 
     <FrameLayout
         android:id="@+id/layout_main"
-        android:layout_width="240dp"
-        android:layout_height="320dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="48dp"
         android:layout_centerInParent="true"/>
 
 </RelativeLayout>

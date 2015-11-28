@@ -13,10 +13,8 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
-import com.labo.kaji.fragmentanimations.animation.HorizontalCubeAnimation;
-import com.labo.kaji.fragmentanimations.animation.HorizontalFlipAnimation;
-import com.labo.kaji.fragmentanimations.animation.VerticalCubeAnimation;
-import com.labo.kaji.fragmentanimations.animation.VerticalFlipAnimation;
+import com.labo.kaji.fragmentanimations.animation.CubeAnimation;
+import com.labo.kaji.fragmentanimations.animation.FlipAnimation;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -41,6 +39,8 @@ public class ExampleFragment extends Fragment {
     public static final int DOWN  = 2;
     public static final int LEFT  = 3;
     public static final int RIGHT = 4;
+
+    private static final long DURATION = 1000;
 
     @AnimationMode
     private static int sAnimationMode = CUBE;
@@ -74,25 +74,25 @@ public class ExampleFragment extends Fragment {
             case CUBE:
                 switch (getArguments().getInt("direction")) {
                     case UP:
-                        return new VerticalCubeAnimation(VerticalCubeAnimation.UP, enter, 1000);
+                        return CubeAnimation.create(CubeAnimation.UP, enter, DURATION);
                     case DOWN:
-                        return new VerticalCubeAnimation(VerticalCubeAnimation.DOWN, enter, 1000);
+                        return CubeAnimation.create(CubeAnimation.DOWN, enter, DURATION);
                     case LEFT:
-                        return new HorizontalCubeAnimation(HorizontalCubeAnimation.LEFT, enter, 1000);
+                        return CubeAnimation.create(CubeAnimation.LEFT, enter, DURATION);
                     case RIGHT:
-                        return new HorizontalCubeAnimation(HorizontalCubeAnimation.RIGHT, enter, 1000);
+                        return CubeAnimation.create(CubeAnimation.RIGHT, enter, DURATION);
                 }
                 break;
             case FLIP:
                 switch (getArguments().getInt("direction")) {
                     case UP:
-                        return new VerticalFlipAnimation(VerticalFlipAnimation.UP, enter, 1000);
+                        return FlipAnimation.create(FlipAnimation.UP, enter, DURATION);
                     case DOWN:
-                        return new VerticalFlipAnimation(VerticalFlipAnimation.DOWN, enter, 1000);
+                        return FlipAnimation.create(FlipAnimation.DOWN, enter, DURATION);
                     case LEFT:
-                        return new HorizontalFlipAnimation(HorizontalFlipAnimation.LEFT, enter, 1000);
+                        return FlipAnimation.create(FlipAnimation.LEFT, enter, DURATION);
                     case RIGHT:
-                        return new HorizontalFlipAnimation(HorizontalFlipAnimation.RIGHT, enter, 1000);
+                        return FlipAnimation.create(FlipAnimation.RIGHT, enter, DURATION);
                 }
                 break;
         }
