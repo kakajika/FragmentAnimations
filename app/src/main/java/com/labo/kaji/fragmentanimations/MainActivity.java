@@ -1,7 +1,6 @@
 package com.labo.kaji.fragmentanimations;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         ExampleFragment f = (ExampleFragment)getSupportFragmentManager().findFragmentById(R.id.layout_main);
         switch (id) {
+            case R.id.style_move:
+                f.setAnimationStyle(ExampleFragment.MOVE);
+                return true;
             case R.id.style_cube:
                 f.setAnimationStyle(ExampleFragment.CUBE);
                 return true;
@@ -44,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.style_pushpull:
                 f.setAnimationStyle(ExampleFragment.PUSHPULL);
+                return true;
+            case R.id.style_cubemove:
+                f.setAnimationStyle(ExampleFragment.CUBEMOVE);
+                return true;
+            case R.id.style_movecube:
+                f.setAnimationStyle(ExampleFragment.MOVECUBE);
+                return true;
+            case R.id.style_pushmove:
+                f.setAnimationStyle(ExampleFragment.PUSHMOVE);
+                return true;
+            case R.id.style_movepull:
+                f.setAnimationStyle(ExampleFragment.MOVEPULL);
                 return true;
         }
         return super.onOptionsItemSelected(item);

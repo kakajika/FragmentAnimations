@@ -25,11 +25,28 @@ public class ViewPropertyAnimation extends Animation {
     protected float mTranslationX = 0.0f;
     protected float mTranslationY = 0.0f;
 
+    private float mFromAlpha = -1.0f;
+    private float mToAlpha   = -1.0f;
+
+    public ViewPropertyAnimation fading(float fromAlpha, float toAlpha) {
+        mFromAlpha = fromAlpha;
+        mToAlpha = toAlpha;
+        return this;
+    }
+
     @Override
     public void initialize(int width, int height, int parentWidth, int parentHeight) {
         super.initialize(width, height, parentWidth, parentHeight);
         mWidth = width;
         mHeight = height;
+    }
+
+    @Override
+    protected void applyTransformation(float interpolatedTime, Transformation t) {
+        super.applyTransformation(interpolatedTime, t);
+        if (mFromAlpha >= 0 && mToAlpha >= 0) {
+            mAlpha = mFromAlpha + (mToAlpha - mFromAlpha) * interpolatedTime;
+        }
     }
 
     protected void applyTransformation(Transformation t) {

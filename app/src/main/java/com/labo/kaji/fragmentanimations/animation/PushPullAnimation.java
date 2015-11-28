@@ -67,6 +67,7 @@ public class PushPullAnimation extends ViewPropertyAnimation {
             mRotationX = value * 90.0f;
             mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
 
+            super.applyTransformation(interpolatedTime, t);
             applyTransformation(t);
         }
 
@@ -92,6 +93,7 @@ public class PushPullAnimation extends ViewPropertyAnimation {
             mRotationY = -value * 90.0f;
             mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
 
+            super.applyTransformation(interpolatedTime, t);
             applyTransformation(t);
         }
 

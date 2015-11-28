@@ -3,6 +3,10 @@
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.labo.kaji.fragmentanimations.MainActivity">
     <item
+        android:id="@+id/style_move"
+        android:title="Move"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/style_cube"
         android:title="Cube"
         app:showAsAction="never"/>
@@ -12,7 +16,22 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/style_pushpull"
-        android:orderInCategory="100"
         android:title="Push/Pull"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_cubemove"
+        android:title="Cube/Move"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_movecube"
+        android:title="Move/Cube"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_pushmove"
+        android:title="Push/Move"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/style_movepull"
+        android:title="Move/Pull"
         app:showAsAction="never"/>
 </menu>
