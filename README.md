@@ -1,6 +1,8 @@
 # FragmentAnimations
 Animation examples for support.v4.Fragment transition.
+
 See [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/ExampleFragment.java)
+
 These animations do not depends on any external libraries.
 
 ## Contents
