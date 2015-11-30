@@ -44,7 +44,6 @@ public class FlipAnimation extends ViewPropertyAnimation {
         mDirection = direction;
         mEnter = enter;
         setDuration(duration);
-        setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
     private static class VerticalFlipAnimation extends FlipAnimation {

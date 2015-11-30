@@ -47,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.style_pushpull:
                 f.setAnimationStyle(ExampleFragment.PUSHPULL);
                 return true;
+            case R.id.style_sides:
+                f.setAnimationStyle(ExampleFragment.SIDES);
+                return true;
             case R.id.style_cubemove:
                 f.setAnimationStyle(ExampleFragment.CUBEMOVE);
                 return true;

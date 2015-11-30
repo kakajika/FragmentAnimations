@@ -24,6 +24,7 @@ public class ViewPropertyAnimation extends Animation {
     protected float mRotationZ = 0.0f;
     protected float mTranslationX = 0.0f;
     protected float mTranslationY = 0.0f;
+    protected float mTranslationZ = 0.0f;
 
     private float mFromAlpha = -1.0f;
     private float mToAlpha   = -1.0f;
@@ -62,6 +63,9 @@ public class ViewPropertyAnimation extends Animation {
         if ((rX != 0) || (rY != 0) || (rZ != 0)) {
             final Camera camera = mCamera;
             camera.save();
+            if (mTranslationZ != 0) {
+                camera.translate(0, 0, mTranslationZ);
+            }
             camera.rotateX(rX);
             camera.rotateY(rY);
             camera.rotateZ(-rZ);

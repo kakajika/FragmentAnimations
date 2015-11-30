@@ -17,6 +17,7 @@ import com.labo.kaji.fragmentanimations.animation.CubeAnimation;
 import com.labo.kaji.fragmentanimations.animation.FlipAnimation;
 import com.labo.kaji.fragmentanimations.animation.MoveAnimation;
 import com.labo.kaji.fragmentanimations.animation.PushPullAnimation;
+import com.labo.kaji.fragmentanimations.animation.SidesAnimation;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,17 +29,18 @@ import butterknife.OnClick;
  */
 public class ExampleFragment extends Fragment {
 
-    @IntDef({NONE, MOVE, CUBE, FLIP, PUSHPULL, CUBEMOVE, MOVECUBE, PUSHMOVE, MOVEPULL})
+    @IntDef({NONE, MOVE, CUBE, FLIP, PUSHPULL, SIDES, CUBEMOVE, MOVECUBE, PUSHMOVE, MOVEPULL})
     public @interface AnimationStyle {}
     public static final int NONE     = 0;
     public static final int MOVE     = 1;
     public static final int CUBE     = 2;
     public static final int FLIP     = 3;
     public static final int PUSHPULL = 4;
+    public static final int SIDES    = 5;
     public static final int CUBEMOVE = 6;
-    public static final int MOVECUBE = 5;
-    public static final int PUSHMOVE = 7;
-    public static final int MOVEPULL = 8;
+    public static final int MOVECUBE = 7;
+    public static final int PUSHMOVE = 8;
+    public static final int MOVEPULL = 9;
 
     @IntDef({NODIR, UP, DOWN, LEFT, RIGHT})
     public @interface AnimationDirection {}
@@ -125,6 +127,18 @@ public class ExampleFragment extends Fragment {
                         return PushPullAnimation.create(PushPullAnimation.LEFT, enter, DURATION);
                     case RIGHT:
                         return PushPullAnimation.create(PushPullAnimation.RIGHT, enter, DURATION);
+                }
+                break;
+            case SIDES:
+                switch (getArguments().getInt("direction")) {
+                    case UP:
+                        return SidesAnimation.create(SidesAnimation.UP, enter, DURATION);
+                    case DOWN:
+                        return SidesAnimation.create(SidesAnimation.DOWN, enter, DURATION);
+                    case LEFT:
+                        return SidesAnimation.create(SidesAnimation.LEFT, enter, DURATION);
+                    case RIGHT:
+                        return SidesAnimation.create(SidesAnimation.RIGHT, enter, DURATION);
                 }
                 break;
             case CUBEMOVE:
@@ -230,7 +244,7 @@ public class ExampleFragment extends Fragment {
     @OnClick(R.id.textAnimationStyle)
     public void switchAnimationStyle(View view) {
         @AnimationStyle int[] styles;
-        styles = new int[]{MOVE, CUBE, FLIP, PUSHPULL, CUBEMOVE, MOVECUBE, PUSHMOVE, MOVEPULL};
+        styles = new int[]{MOVE, CUBE, FLIP, PUSHPULL, SIDES, CUBEMOVE, MOVECUBE, PUSHMOVE, MOVEPULL};
         for (int i = 0; i<styles.length-1; ++i) {
             if (styles[i] == sAnimationStyle) {
                 setAnimationStyle(styles[i+1]);
@@ -264,6 +278,9 @@ public class ExampleFragment extends Fragment {
                 break;
             case PUSHPULL:
                 mTextAnimationStyle.setText("Push/Pull");
+                break;
+            case SIDES:
+                mTextAnimationStyle.setText("Sides");
                 break;
             case CUBEMOVE:
                 mTextAnimationStyle.setText("Cube/Move");

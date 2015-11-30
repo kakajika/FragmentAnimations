@@ -5,11 +5,11 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Transformation;
 
 /**
- * Move Animation
+ * 3D Cube Animation
  * @author kakajika
  * @since 2015/11/28
  */
-public class MoveAnimation extends ViewPropertyAnimation {
+public class SidesAnimation extends ViewPropertyAnimation {
 
     @IntDef({UP, DOWN, LEFT, RIGHT})
     @interface Direction {}
@@ -28,34 +28,44 @@ public class MoveAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static MoveAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static SidesAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
-                return new VerticalMoveAnimation(direction, enter, duration);
+                return new VerticalCubeAnimation(direction, enter, duration);
             case LEFT:
             case RIGHT:
-                return new HorizontalMoveAnimation(direction, enter, duration);
+                return new HorizontalCubeAnimation(direction, enter, duration);
         }
         return null;
     }
 
-    private MoveAnimation(@Direction int direction, boolean enter, long duration) {
+    private SidesAnimation(@Direction int direction, boolean enter, long duration) {
         mDirection = direction;
         mEnter = enter;
         setDuration(duration);
+        setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
-    private static class VerticalMoveAnimation extends MoveAnimation {
+    private static class VerticalCubeAnimation extends SidesAnimation {
 
-        private VerticalMoveAnimation(@Direction int direction, boolean enter, long duration) {
+        private VerticalCubeAnimation(@Direction int direction, boolean enter, long duration) {
             super(direction, enter, duration);
+        }
+
+        @Override
+        public void initialize(int width, int height, int parentWidth, int parentHeight) {
+            super.initialize(width, height, parentWidth, parentHeight);
+            mPivotX = width * 0.5f;
+            mPivotY = (mEnter == (mDirection == UP)) ? 0.0f : height;
+            mTranslationZ = -height;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
             if (mDirection == DOWN) value *= -1.0f;
+            mRotationX = value * 90.0f;
             mTranslationY = -value * mHeight;
 
             super.applyTransformation(interpolatedTime, t);
@@ -64,17 +74,26 @@ public class MoveAnimation extends ViewPropertyAnimation {
 
     }
 
-    private static class HorizontalMoveAnimation extends MoveAnimation {
+    private static class HorizontalCubeAnimation extends SidesAnimation {
 
-        private HorizontalMoveAnimation(@Direction int direction, boolean enter, long duration) {
+        private HorizontalCubeAnimation(@Direction int direction, boolean enter, long duration) {
             super(direction, enter, duration);
+        }
+
+        @Override
+        public void initialize(int width, int height, int parentWidth, int parentHeight) {
+            super.initialize(width, height, parentWidth, parentHeight);
+            mPivotX = (mEnter == (mDirection == RIGHT)) ? 0.0f : width;
+            mPivotY = height * 0.5f;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == RIGHT) value *= -1.0f;
-            mTranslationX = -value * mWidth;
+            if (mDirection == LEFT) value *= -1.0f;
+            mRotationY = -value * 90.0f;
+            mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
+            mTranslationZ = (1.0f - mAlpha) * mHeight;
 
             super.applyTransformation(interpolatedTime, t);
             applyTransformation(t);
