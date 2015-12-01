@@ -7,36 +7,45 @@ These animations do not depends on any external libraries.
 
 ## Contents
 
-### Move Animation - Up/Down/Left/Right
+### Move Animation
 
 [MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/MoveAnimation.java)
+
+![Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/move.gif)
 
 ### Cube Animation
 
 [CubeAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/CubeAnimation.java)
 
-#### Vertical - Up/Down
+![Cube](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cube.gif)
 
-![Cube Vertical](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cube_vertical.gif)
-
-#### Horizontal - Left/Right
-
-![Cube Horizontal](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cube_horizontal.gif)
-
-### Flip Animation - Up/Down/Left/Right
+### Flip Animation
 
 [FlipAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/FlipAnimation.java)
 
-### Push/Pull Animation - Up/Down/Left/Right
+![Flip](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/flip.gif)
+
+### Push/Pull Animation
 
 [PushPullAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/PushPullAnimation.java)
 
-### Cube/Move Animation - Up/Down/Left/Right
+![Push/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/pushpull.gif)
 
-### Move/Cube Animation - Up/Down/Left/Right
+### Cube/Move Animation
 
-### Push/Move Animation - Up/Down/Left/Right
+![Cube/Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cubemove.gif)
 
-### Move/Pull Animation - Up/Down/Left/Right
+### Move/Cube Animation
+
+![Move/Cube](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/movecube.gif)
+
+### Push/Move Animation
+
+![Push/Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/pushmove.gif)
+
+### Move/Pull Animation
+
+![Move/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/movepull.gif)
+
 
 
