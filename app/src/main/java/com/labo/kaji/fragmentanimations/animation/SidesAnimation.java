@@ -57,16 +57,16 @@ public class SidesAnimation extends ViewPropertyAnimation {
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
             mPivotX = width * 0.5f;
-            mPivotY = (mEnter == (mDirection == UP)) ? 0.0f : height;
-            mTranslationZ = -height;
+            mPivotY = (mEnter == (mDirection == DOWN)) ? 0.0f : height;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == DOWN) value *= -1.0f;
-            mRotationX = value * 90.0f;
-            mTranslationY = -value * mHeight;
+            if (mDirection == UP) value *= -1.0f;
+            mRotationX = -value * 90.0f;
+            mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
+            mTranslationZ = (1.0f - mAlpha) * mWidth;
 
             super.applyTransformation(interpolatedTime, t);
             applyTransformation(t);

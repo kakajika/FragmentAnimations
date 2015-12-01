@@ -11,7 +11,7 @@ import android.view.animation.Transformation;
  */
 public class ViewPropertyAnimation extends Animation {
 
-    protected final Camera mCamera = new Camera();
+    private final Camera mCamera = new Camera();
     protected int mWidth  = 0;
     protected int mHeight = 0;
     protected float mAlpha = 1.0f;
@@ -25,6 +25,9 @@ public class ViewPropertyAnimation extends Animation {
     protected float mTranslationX = 0.0f;
     protected float mTranslationY = 0.0f;
     protected float mTranslationZ = 0.0f;
+    protected float mCameraX = 0.0f;
+    protected float mCameraY = 0.0f;
+    protected float mCameraZ = -8.0f;
 
     private float mFromAlpha = -1.0f;
     private float mToAlpha   = -1.0f;
@@ -63,6 +66,7 @@ public class ViewPropertyAnimation extends Animation {
         if ((rX != 0) || (rY != 0) || (rZ != 0)) {
             final Camera camera = mCamera;
             camera.save();
+            camera.setLocation(mCameraX, mCameraY, mCameraZ);
             if (mTranslationZ != 0) {
                 camera.translate(0, 0, mTranslationZ);
             }
