@@ -64,7 +64,7 @@ public class SidesAnimation extends ViewPropertyAnimation {
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
             if (mDirection == UP) value *= -1.0f;
-            mRotationX = -value * 90.0f;
+            mRotationX = value * 90.0f;
             mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
             mTranslationZ = (1.0f - mAlpha) * mWidth;
 
