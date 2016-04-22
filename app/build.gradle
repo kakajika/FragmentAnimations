@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'deploygate'
 
 android {
     compileSdkVersion 23
@@ -26,4 +27,5 @@ dependencies {
     compile 'com.android.support:design:23.1.1'
     compile 'com.android.support:support-v4:23.+'
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.deploygate:sdk:3.1'
 }
