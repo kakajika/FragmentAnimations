@@ -1,7 +1,9 @@
 # FragmentAnimations
 Animation examples for support.v4.Fragment transition.
 
-See [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/ExampleFragment.java)
+[<img src="https://dply.me/h7azvd/button/large" alt="Try it on your device via DeployGate">](https://dply.me/h7azvd)
+
+See usage example in [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/ExampleFragment.java)
 
 These animations do not depends on any external libraries.
 
@@ -47,5 +49,7 @@ These animations do not depends on any external libraries.
 
 ![Move/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/movepull.gif)
 
+### Sides Animation
 
+[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/SidesAnimation.java)
 
