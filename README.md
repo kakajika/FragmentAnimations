@@ -1,11 +1,22 @@
 # FragmentAnimations
-Animation examples for support.v4.Fragment transition.
+Animation examples for `support.v4.Fragment` transition.
 
 [<img src="https://dply.me/h7azvd/button/large" alt="Try it on your device via DeployGate">](https://dply.me/h7azvd)
 
-See usage example in [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/ExampleFragment.java)
-
 These animations do not depends on any external libraries.
+
+## Usage Example
+
+In your `Fragment`, just code like this.
+
+```java
+@Override
+public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+    return CubeAnimation.create(CubeAnimation.UP, enter, DURATION);
+}
+```
+
+See more example in [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/ExampleFragment.java)
 
 ## Contents
 
@@ -33,6 +44,25 @@ These animations do not depends on any external libraries.
 
 ![Push/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/pushpull.gif)
 
+### Sides Animation
+
+[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/SidesAnimation.java)
+
+## Combination
+
+You can use above Animations with another one.
+
+```java
+@Override
+public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+    if (enter) {
+        return MoveAnimation.create(MoveAnimation.UP, enter, DURATION);
+    } else {
+        return CubeAnimation.create(CubeAnimation.UP, enter, DURATION);
+    }
+}
+```
+
 ### Cube/Move Animation
 
 ![Cube/Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cubemove.gif)
@@ -48,8 +78,4 @@ These animations do not depends on any external libraries.
 ### Move/Pull Animation
 
 ![Move/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/movepull.gif)
-
-### Sides Animation
-
-[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/SidesAnimation.java)
 
