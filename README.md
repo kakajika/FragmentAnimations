@@ -6,9 +6,9 @@
 
 Animation examples for `support.v4.Fragment` transition.
 
-[<img src="https://dply.me/h7azvd/button/large" alt="Try it on your device via DeployGate">](https://dply.me/h7azvd)
-
 These animations do not depends on any external libraries.
+
+[<img src="https://dply.me/h7azvd/button/large" alt="Try it on your device via DeployGate">](https://dply.me/h7azvd)
 
 ## Usage Example
 
