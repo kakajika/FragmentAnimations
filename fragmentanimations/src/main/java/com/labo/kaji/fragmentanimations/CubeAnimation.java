@@ -1,7 +1,6 @@
-package com.labo.kaji.fragmentanimations.animation;
+package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Transformation;
 
 /**
@@ -9,7 +8,7 @@ import android.view.animation.Transformation;
  * @author kakajika
  * @since 2015/11/28
  */
-public class SidesAnimation extends ViewPropertyAnimation {
+public class CubeAnimation extends ViewPropertyAnimation {
 
     @IntDef({UP, DOWN, LEFT, RIGHT})
     @interface Direction {}
@@ -28,7 +27,7 @@ public class SidesAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static SidesAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static CubeAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
@@ -40,14 +39,13 @@ public class SidesAnimation extends ViewPropertyAnimation {
         return null;
     }
 
-    private SidesAnimation(@Direction int direction, boolean enter, long duration) {
+    private CubeAnimation(@Direction int direction, boolean enter, long duration) {
         mDirection = direction;
         mEnter = enter;
         setDuration(duration);
-        setInterpolator(new AccelerateDecelerateInterpolator());
     }
 
-    private static class VerticalCubeAnimation extends SidesAnimation {
+    private static class VerticalCubeAnimation extends CubeAnimation {
 
         private VerticalCubeAnimation(@Direction int direction, boolean enter, long duration) {
             super(direction, enter, duration);
@@ -57,16 +55,16 @@ public class SidesAnimation extends ViewPropertyAnimation {
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
             mPivotX = width * 0.5f;
-            mPivotY = (mEnter == (mDirection == DOWN)) ? 0.0f : height;
+            mPivotY = (mEnter == (mDirection == UP)) ? 0.0f : height;
+            mCameraZ = -height * 0.015f;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == UP) value *= -1.0f;
+            if (mDirection == DOWN) value *= -1.0f;
             mRotationX = value * 90.0f;
-            mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
-            mTranslationZ = (1.0f - mAlpha) * mWidth;
+            mTranslationY = -value * mHeight;
 
             super.applyTransformation(interpolatedTime, t);
             applyTransformation(t);
@@ -74,7 +72,7 @@ public class SidesAnimation extends ViewPropertyAnimation {
 
     }
 
-    private static class HorizontalCubeAnimation extends SidesAnimation {
+    private static class HorizontalCubeAnimation extends CubeAnimation {
 
         private HorizontalCubeAnimation(@Direction int direction, boolean enter, long duration) {
             super(direction, enter, duration);
@@ -83,17 +81,17 @@ public class SidesAnimation extends ViewPropertyAnimation {
         @Override
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
-            mPivotX = (mEnter == (mDirection == RIGHT)) ? 0.0f : width;
+            mPivotX = (mEnter == (mDirection == LEFT)) ? 0.0f : width;
             mPivotY = height * 0.5f;
+            mCameraZ = -width * 0.015f;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == LEFT) value *= -1.0f;
+            if (mDirection == RIGHT) value *= -1.0f;
             mRotationY = -value * 90.0f;
-            mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
-            mTranslationZ = (1.0f - mAlpha) * mHeight;
+            mTranslationX = -value * mWidth;
 
             super.applyTransformation(interpolatedTime, t);
             applyTransformation(t);

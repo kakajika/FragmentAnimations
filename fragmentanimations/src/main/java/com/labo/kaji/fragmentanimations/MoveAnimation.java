@@ -1,7 +1,6 @@
-package com.labo.kaji.fragmentanimations.animation;
+package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Transformation;
 
 /**

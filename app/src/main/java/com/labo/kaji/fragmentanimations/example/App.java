@@ -1,4 +1,4 @@
-package com.labo.kaji.fragmentanimations;
+package com.labo.kaji.fragmentanimations.example;
 
 import android.app.Application;
 

@@ -1,4 +1,4 @@
-package com.labo.kaji.fragmentanimations;
+package com.labo.kaji.fragmentanimations.example;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -13,11 +13,11 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.TextView;
 
-import com.labo.kaji.fragmentanimations.animation.CubeAnimation;
-import com.labo.kaji.fragmentanimations.animation.FlipAnimation;
-import com.labo.kaji.fragmentanimations.animation.MoveAnimation;
-import com.labo.kaji.fragmentanimations.animation.PushPullAnimation;
-import com.labo.kaji.fragmentanimations.animation.SidesAnimation;
+import com.labo.kaji.fragmentanimations.CubeAnimation;
+import com.labo.kaji.fragmentanimations.FlipAnimation;
+import com.labo.kaji.fragmentanimations.MoveAnimation;
+import com.labo.kaji.fragmentanimations.PushPullAnimation;
+import com.labo.kaji.fragmentanimations.SidesAnimation;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

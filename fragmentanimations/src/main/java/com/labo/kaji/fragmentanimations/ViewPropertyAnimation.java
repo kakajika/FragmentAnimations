@@ -1,7 +1,9 @@
-package com.labo.kaji.fragmentanimations.animation;
+package com.labo.kaji.fragmentanimations;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
+import android.os.Build;
+import android.support.annotation.FloatRange;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
@@ -32,7 +34,7 @@ public class ViewPropertyAnimation extends Animation {
     private float mFromAlpha = -1.0f;
     private float mToAlpha   = -1.0f;
 
-    public ViewPropertyAnimation fading(float fromAlpha, float toAlpha) {
+    public ViewPropertyAnimation fading(@FloatRange(from=0.0f,to=1.0f) float fromAlpha, @FloatRange(from=0.0f,to=1.0f) float toAlpha) {
         mFromAlpha = fromAlpha;
         mToAlpha = toAlpha;
         return this;
@@ -66,7 +68,9 @@ public class ViewPropertyAnimation extends Animation {
         if ((rX != 0) || (rY != 0) || (rZ != 0)) {
             final Camera camera = mCamera;
             camera.save();
-            camera.setLocation(mCameraX, mCameraY, mCameraZ);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1) {
+                camera.setLocation(mCameraX, mCameraY, mCameraZ);
+            }
             if (mTranslationZ != 0) {
                 camera.translate(0, 0, mTranslationZ);
             }

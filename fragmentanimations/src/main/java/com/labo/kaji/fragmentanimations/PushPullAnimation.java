@@ -1,15 +1,14 @@
-package com.labo.kaji.fragmentanimations.animation;
+package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Transformation;
 
 /**
- * 3D Flip Animation
+ * 3D Push/Pull Animation
  * @author kakajika
  * @since 2015/11/28
  */
-public class FlipAnimation extends ViewPropertyAnimation {
+public class PushPullAnimation extends ViewPropertyAnimation {
 
     @IntDef({UP, DOWN, LEFT, RIGHT})
     @interface Direction {}
@@ -28,27 +27,27 @@ public class FlipAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static FlipAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static PushPullAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
-                return new VerticalFlipAnimation(direction, enter, duration);
+                return new VerticalPushPullAnimation(direction, enter, duration);
             case LEFT:
             case RIGHT:
-                return new HorizontalFlipAnimation(direction, enter, duration);
+                return new HorizontalPushPullAnimation(direction, enter, duration);
         }
         return null;
     }
 
-    private FlipAnimation(@Direction int direction, boolean enter, long duration) {
+    private PushPullAnimation(@Direction int direction, boolean enter, long duration) {
         mDirection = direction;
         mEnter = enter;
         setDuration(duration);
     }
 
-    private static class VerticalFlipAnimation extends FlipAnimation {
+    private static class VerticalPushPullAnimation extends PushPullAnimation {
 
-        public VerticalFlipAnimation(@Direction int direction, boolean enter, long duration) {
+        private VerticalPushPullAnimation(@Direction int direction, boolean enter, long duration) {
             super(direction, enter, duration);
         }
 
@@ -56,57 +55,43 @@ public class FlipAnimation extends ViewPropertyAnimation {
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
             mPivotX = width * 0.5f;
-            mPivotY = (mEnter == (mDirection == UP)) ? 0.0f : height;
-            mCameraZ = -height * 0.015f;
+            mPivotY = (mEnter == (mDirection == DOWN)) ? 0.0f : height;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == DOWN) value *= -1.0f;
-            mRotationX = value * 180.0f;
-            mTranslationY = -value * mHeight;
+            if (mDirection == UP) value *= -1.0f;
+            mRotationX = value * 90.0f;
+            mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
 
             super.applyTransformation(interpolatedTime, t);
-
-            // Hide exiting view after half point.
-            if (interpolatedTime >= 0.5f && !mEnter) {
-                mAlpha = 0.0f;
-            }
-
             applyTransformation(t);
         }
 
     }
 
-    private static class HorizontalFlipAnimation extends FlipAnimation {
+    private static class HorizontalPushPullAnimation extends PushPullAnimation {
 
-        public HorizontalFlipAnimation(@Direction int direction, boolean enter, long duration) {
+        private HorizontalPushPullAnimation(@Direction int direction, boolean enter, long duration) {
             super(direction, enter, duration);
         }
 
         @Override
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
-            mPivotX = (mEnter == (mDirection == LEFT)) ? 0.0f : width;
+            mPivotX = (mEnter == (mDirection == RIGHT)) ? 0.0f : width;
             mPivotY = height * 0.5f;
-            mCameraZ = -width * 0.015f;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == RIGHT) value *= -1.0f;
-            mRotationY = -value * 180.0f;
-            mTranslationX = -value * mWidth;
+            if (mDirection == LEFT) value *= -1.0f;
+            mRotationY = -value * 90.0f;
+            mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
 
             super.applyTransformation(interpolatedTime, t);
-
-            // Hide exiting view after half point.
-            if (interpolatedTime >= 0.5f && !mEnter) {
-                mAlpha = 0.0f;
-            }
-
             applyTransformation(t);
         }
 
