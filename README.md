@@ -84,6 +84,16 @@ public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
 
 ![Move/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/movepull.gif)
 
+## Install
+
+This library is available in jcenter.
+
+```groovy
+dependencies {
+    compile 'com.labo.kaji:fragmentanimations:0.1.0'
+}
+```
+
 ## License
 
     Copyright 2015 kakajika
