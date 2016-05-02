@@ -27,31 +27,31 @@ See more example in [ExampleFragment.java](https://github.com/kakajika/FragmentA
 
 ### Move Animation
 
-[MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/MoveAnimation.java)
+[MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/MoveAnimation.java)
 
 ![Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/move.gif)
 
 ### Cube Animation
 
-[CubeAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/CubeAnimation.java)
+[CubeAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/CubeAnimation.java)
 
 ![Cube](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cube.gif)
 
 ### Flip Animation
 
-[FlipAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/FlipAnimation.java)
+[FlipAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/FlipAnimation.java)
 
 ![Flip](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/flip.gif)
 
 ### Push/Pull Animation
 
-[PushPullAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/PushPullAnimation.java)
+[PushPullAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/PushPullAnimation.java)
 
 ![Push/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/pushpull.gif)
 
 ### Sides Animation
 
-[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/SidesAnimation.java)
+[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/SidesAnimation.java)
 
 ## Combination
 
