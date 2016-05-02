@@ -3,6 +3,9 @@ package com.labo.kaji.fragmentanimations;
 import android.support.annotation.IntDef;
 import android.view.animation.Transformation;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * 3D Push/Pull Animation
  * @author kakajika
@@ -11,6 +14,7 @@ import android.view.animation.Transformation;
 public class PushPullAnimation extends ViewPropertyAnimation {
 
     @IntDef({UP, DOWN, LEFT, RIGHT})
+    @Retention(RetentionPolicy.SOURCE)
     @interface Direction {}
     public static final int UP    = 1;
     public static final int DOWN  = 2;

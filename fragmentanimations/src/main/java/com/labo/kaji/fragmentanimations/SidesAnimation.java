@@ -4,6 +4,9 @@ import android.support.annotation.IntDef;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Transformation;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+
 /**
  * 3D Cube Animation
  * @author kakajika
@@ -12,6 +15,7 @@ import android.view.animation.Transformation;
 public class SidesAnimation extends ViewPropertyAnimation {
 
     @IntDef({UP, DOWN, LEFT, RIGHT})
+    @Retention(RetentionPolicy.SOURCE)
     @interface Direction {}
     public static final int UP    = 1;
     public static final int DOWN  = 2;
