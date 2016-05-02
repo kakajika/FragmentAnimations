@@ -21,37 +21,37 @@ public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
 }
 ```
 
-See more example in [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/ExampleFragment.java)
+See more example in [ExampleFragment.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/example/ExampleFragment.java)
 
 ## Contents
 
 ### Move Animation
 
-[MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/MoveAnimation.java)
+[MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/MoveAnimation.java)
 
 ![Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/move.gif)
 
 ### Cube Animation
 
-[CubeAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/CubeAnimation.java)
+[CubeAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/CubeAnimation.java)
 
 ![Cube](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/cube.gif)
 
 ### Flip Animation
 
-[FlipAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/FlipAnimation.java)
+[FlipAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/FlipAnimation.java)
 
 ![Flip](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/flip.gif)
 
 ### Push/Pull Animation
 
-[PushPullAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/PushPullAnimation.java)
+[PushPullAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/PushPullAnimation.java)
 
 ![Push/Pull](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/pushpull.gif)
 
 ### Sides Animation
 
-[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/app/src/main/java/com/labo/kaji/fragmentanimations/animation/SidesAnimation.java)
+[SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/animation/SidesAnimation.java)
 
 ## Combination
 
