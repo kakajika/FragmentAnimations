@@ -25,12 +25,6 @@ See more example in [ExampleFragment.java](https://github.com/kakajika/FragmentA
 
 ## Contents
 
-### Move Animation
-
-[MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/MoveAnimation.java)
-
-![Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/move.gif)
-
 ### Cube Animation
 
 [CubeAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/CubeAnimation.java)
@@ -52,6 +46,12 @@ See more example in [ExampleFragment.java](https://github.com/kakajika/FragmentA
 ### Sides Animation
 
 [SidesAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/SidesAnimation.java)
+
+### Move Animation
+
+[MoveAnimation.java](https://github.com/kakajika/FragmentAnimations/blob/master/fragmentanimations/src/main/java/com/labo/kaji/fragmentanimations/MoveAnimation.java)
+
+![Move](https://raw.githubusercontent.com/wiki/kakajika/FragmentAnimations/images/move.gif)
 
 ## Combination
 
