@@ -3,6 +3,7 @@
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 <img src="https://img.shields.io/badge/license-Apache 2.0-green.svg?style=flat">
 [![API](https://img.shields.io/badge/API-4%2B-yellow.svg?style=flat)](https://android-arsenal.com/api?level=4)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-FragmentAnimations-green.svg?style=true)](https://android-arsenal.com/details/1/3526)
 
 Animation examples for `support.v4.Fragment` transition.
 
