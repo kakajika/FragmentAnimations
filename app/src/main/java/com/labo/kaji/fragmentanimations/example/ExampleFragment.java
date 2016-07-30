@@ -1,5 +1,6 @@
 package com.labo.kaji.fragmentanimations.example;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.IntDef;
@@ -68,7 +69,7 @@ public class ExampleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.content_anim, null);
+        View view = inflater.inflate(R.layout.content_anim, container, false);
         int color = Color.rgb((int) Math.floor(Math.random() * 128) + 64,
                               (int) Math.floor(Math.random() * 128) + 64,
                               (int) Math.floor(Math.random() * 128) + 64);
@@ -205,10 +206,13 @@ public class ExampleFragment extends Fragment {
                                 MoveAnimation.create(MoveAnimation.RIGHT, enter, DURATION).fading(1.0f, 0.3f);
                 }
                 break;
+            case NONE:
+                break;
         }
         return null;
     }
 
+    @SuppressWarnings("unused")
     @OnClick(R.id.buttonUp)
     void onButtonUp() {
         getArguments().putInt("direction", UP);
@@ -217,6 +221,7 @@ public class ExampleFragment extends Fragment {
         ft.commit();
     }
 
+    @SuppressWarnings("unused")
     @OnClick(R.id.buttonDown)
     void onButtonDown() {
         getArguments().putInt("direction", DOWN);
@@ -225,6 +230,7 @@ public class ExampleFragment extends Fragment {
         ft.commit();
     }
 
+    @SuppressWarnings("unused")
     @OnClick(R.id.buttonLeft)
     void onButtonLeft() {
         getArguments().putInt("direction", LEFT);
@@ -233,6 +239,7 @@ public class ExampleFragment extends Fragment {
         ft.commit();
     }
 
+    @SuppressWarnings("unused")
     @OnClick(R.id.buttonRight)
     void onButtonRight() {
         getArguments().putInt("direction", RIGHT);
@@ -241,6 +248,7 @@ public class ExampleFragment extends Fragment {
         ft.commit();
     }
 
+    @SuppressWarnings("unused")
     @OnClick(R.id.textAnimationStyle)
     public void switchAnimationStyle(View view) {
         @AnimationStyle int[] styles;
@@ -262,6 +270,7 @@ public class ExampleFragment extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private void setAnimationStyleText() {
         switch (sAnimationStyle) {
             case NONE:
