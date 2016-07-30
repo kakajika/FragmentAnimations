@@ -72,9 +72,11 @@ public class FlipAnimation extends ViewPropertyAnimation {
 
             super.applyTransformation(interpolatedTime, t);
 
-            // Hide exiting view after half point.
-            if (interpolatedTime >= 0.5f && !mEnter) {
-                mAlpha = 0.0f;
+            // Hide entering/exiting view before/after half point.
+            if (mEnter) {
+                mAlpha = interpolatedTime <= 0.5f ? 0.0f : 1.0f;
+            } else {
+                mAlpha = interpolatedTime <= 0.5f ? 1.0f : 0.0f;
             }
 
             applyTransformation(t);
@@ -105,14 +107,11 @@ public class FlipAnimation extends ViewPropertyAnimation {
 
             super.applyTransformation(interpolatedTime, t);
 
-            // Hide exiting view after half point.
-            if (interpolatedTime >= 0.5f && !mEnter) {
-                mAlpha = 0.0f;
-            }
-
-            // Hide entering view before half point.
+            // Hide entering/exiting view before/after half point.
             if (mEnter) {
                 mAlpha = interpolatedTime <= 0.5f ? 0.0f : 1.0f;
+            } else {
+                mAlpha = interpolatedTime <= 0.5f ? 1.0f : 0.0f;
             }
 
             applyTransformation(t);
