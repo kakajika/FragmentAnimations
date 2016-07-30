@@ -110,6 +110,11 @@ public class FlipAnimation extends ViewPropertyAnimation {
                 mAlpha = 0.0f;
             }
 
+            // Hide entering view before half point.
+            if (mEnter) {
+                mAlpha = interpolatedTime <= 0.5f ? 0.0f : 1.0f;
+            }
+
             applyTransformation(t);
         }
 
