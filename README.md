@@ -91,7 +91,7 @@ This library is available in jcenter.
 
 ```groovy
 dependencies {
-    compile 'com.labo.kaji:fragmentanimations:0.1.0'
+    compile 'com.labo.kaji:fragmentanimations:0.1.1'
 }
 ```
 
