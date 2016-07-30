@@ -1,6 +1,7 @@
 package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Transformation;
 
@@ -32,16 +33,16 @@ public class SidesAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static SidesAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static @NonNull SidesAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
                 return new VerticalCubeAnimation(direction, enter, duration);
             case LEFT:
             case RIGHT:
+            default:
                 return new HorizontalCubeAnimation(direction, enter, duration);
         }
-        return null;
     }
 
     private SidesAnimation(@Direction int direction, boolean enter, long duration) {

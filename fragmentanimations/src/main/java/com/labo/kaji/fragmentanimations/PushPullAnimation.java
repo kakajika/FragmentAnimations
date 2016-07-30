@@ -1,6 +1,7 @@
 package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
 import android.view.animation.Transformation;
 
 import java.lang.annotation.Retention;
@@ -31,16 +32,16 @@ public class PushPullAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static PushPullAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static @NonNull PushPullAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
                 return new VerticalPushPullAnimation(direction, enter, duration);
             case LEFT:
             case RIGHT:
+            default:
                 return new HorizontalPushPullAnimation(direction, enter, duration);
         }
-        return null;
     }
 
     private PushPullAnimation(@Direction int direction, boolean enter, long duration) {

@@ -1,6 +1,7 @@
 package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
 import android.view.animation.Transformation;
 
 import java.lang.annotation.Retention;
@@ -31,16 +32,16 @@ public class MoveAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static MoveAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static @NonNull MoveAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
                 return new VerticalMoveAnimation(direction, enter, duration);
             case LEFT:
             case RIGHT:
+            default:
                 return new HorizontalMoveAnimation(direction, enter, duration);
         }
-        return null;
     }
 
     private MoveAnimation(@Direction int direction, boolean enter, long duration) {

@@ -1,6 +1,7 @@
 package com.labo.kaji.fragmentanimations;
 
 import android.support.annotation.IntDef;
+import android.support.annotation.NonNull;
 import android.view.animation.Transformation;
 
 import java.lang.annotation.Retention;
@@ -31,16 +32,16 @@ public class CubeAnimation extends ViewPropertyAnimation {
      * @param duration Duration of Animation
      * @return
      */
-    public static CubeAnimation create(@Direction int direction, boolean enter, long duration) {
+    public static @NonNull CubeAnimation create(@Direction int direction, boolean enter, long duration) {
         switch (direction) {
             case UP:
             case DOWN:
                 return new VerticalCubeAnimation(direction, enter, duration);
             case LEFT:
             case RIGHT:
+            default:
                 return new HorizontalCubeAnimation(direction, enter, duration);
         }
-        return null;
     }
 
     private CubeAnimation(@Direction int direction, boolean enter, long duration) {
