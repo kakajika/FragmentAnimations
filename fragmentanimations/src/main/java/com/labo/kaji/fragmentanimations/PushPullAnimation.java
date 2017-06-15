@@ -60,13 +60,13 @@ public class PushPullAnimation extends ViewPropertyAnimation {
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
             mPivotX = width * 0.5f;
-            mPivotY = (mEnter == (mDirection == DOWN)) ? 0.0f : height;
+            mPivotY = (mEnter == (mDirection == UP)) ? 0.0f : height;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == UP) value *= -1.0f;
+            if (mDirection == DOWN) value *= -1.0f;
             mRotationX = value * 90.0f;
             mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
 
@@ -85,14 +85,14 @@ public class PushPullAnimation extends ViewPropertyAnimation {
         @Override
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
-            mPivotX = (mEnter == (mDirection == RIGHT)) ? 0.0f : width;
+            mPivotX = (mEnter == (mDirection == LEFT)) ? 0.0f : width;
             mPivotY = height * 0.5f;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == LEFT) value *= -1.0f;
+            if (mDirection == RIGHT) value *= -1.0f;
             mRotationY = -value * 90.0f;
             mAlpha = mEnter ? interpolatedTime : (1.0f - interpolatedTime);
 
