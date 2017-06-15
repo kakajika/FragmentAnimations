@@ -60,14 +60,14 @@ public class FlipAnimation extends ViewPropertyAnimation {
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
             mPivotX = width * 0.5f;
-            mPivotY = (mEnter == (mDirection == UP)) ? 0.0f : height;
+            mPivotY = (mEnter == (mDirection == DOWN)) ? 0.0f : height;
             mCameraZ = -height * 0.015f;
         }
 
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == DOWN) value *= -1.0f;
+            if (mDirection == UP) value *= -1.0f;
             mRotationX = value * 180.0f;
             mTranslationY = -value * mHeight;
 
@@ -94,7 +94,7 @@ public class FlipAnimation extends ViewPropertyAnimation {
         @Override
         public void initialize(int width, int height, int parentWidth, int parentHeight) {
             super.initialize(width, height, parentWidth, parentHeight);
-            mPivotX = (mEnter == (mDirection == LEFT)) ? 0.0f : width;
+            mPivotX = (mEnter == (mDirection == RIGHT)) ? 0.0f : width;
             mPivotY = height * 0.5f;
             mCameraZ = -width * 0.015f;
         }
@@ -102,7 +102,7 @@ public class FlipAnimation extends ViewPropertyAnimation {
         @Override
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             float value = mEnter ? (interpolatedTime - 1.0f) : interpolatedTime;
-            if (mDirection == RIGHT) value *= -1.0f;
+            if (mDirection == LEFT) value *= -1.0f;
             mRotationY = -value * 180.0f;
             mTranslationX = -value * mWidth;
 
